@@ -9,5 +9,10 @@ namespace BitStore.Metadata.Repository
         {
 
         }
+
+        public async Task<Common.Models.Object> GetObject(Guid id, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -8,5 +8,8 @@
         public string Extension { get; set; }
         public string AbsolutePath { get; set; }
         public DateTime CreatedAt { get; set; }
+
+        public Guid VolumeId { get; set; }
+        public Volume Volume { get; set; }
     }
 }

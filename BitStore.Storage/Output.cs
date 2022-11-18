@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BitStore.Storage
+﻿namespace BitStore.Storage
 {
-    internal class Output
+    public static class Output
     {
-
+        public static byte[] Read(string path)
+        {
+            return File.ReadAllBytes(path);
+        }
     }
 }
