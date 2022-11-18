@@ -1,0 +1,12 @@
+﻿namespace BitStore.Metadata.Models
+{
+    internal class Object
+    {
+        public Guid Id { get; set; }
+        public long Size { get; set; }
+        public string Name { get; set; }
+        public string Extension { get; set; }
+        public string AbsolutePath { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
+}
