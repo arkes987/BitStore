@@ -2,6 +2,7 @@
 {
     public interface IObjectService
     {
-        Task<Stream> GetFile(Guid objectId);
+        Task<Stream> GetFile(Guid objectId, CancellationToken cancellationToken);
+        Task SaveFile(CancellationToken cancellationToken);
     }
 }

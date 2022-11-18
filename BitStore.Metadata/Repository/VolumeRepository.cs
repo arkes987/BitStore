@@ -1,6 +1,6 @@
 ﻿using BitStore.Common.Interfaces.Repositories;
+using BitStore.Common.Models;
 using BitStore.Metadata.Context;
-using BitStore.Metadata.Models;
 
 namespace BitStore.Metadata.Repository
 {

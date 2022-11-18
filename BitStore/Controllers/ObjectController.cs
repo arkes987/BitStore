@@ -1,4 +1,4 @@
-using BitStore.Engine.Interfaces;
+using BitStore.Common.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BitStore.Controllers
@@ -17,9 +17,9 @@ namespace BitStore.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<FileStreamResult> Get(Guid id)
+        public async Task<FileStreamResult> Get(Guid id, CancellationToken cancellationToken)
         {
-            var stream = await _objectService.GetFile(id);
+            var stream = await _objectService.GetFile(id, cancellationToken);
 
             return File(stream, "application/octet-stream");
         }

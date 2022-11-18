@@ -1,4 +1,6 @@
-﻿namespace BitStore.Common.Interfaces.Repositories
+﻿using BitStore.Common.Models;
+
+namespace BitStore.Common.Interfaces.Repositories
 {
     public interface IVolumeRepository
     {

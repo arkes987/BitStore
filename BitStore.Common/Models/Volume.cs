@@ -1,6 +1,6 @@
-﻿namespace BitStore.Metadata.Models
+﻿namespace BitStore.Common.Models
 {
-    internal class Volume
+    public class Volume
     {
         public Guid Id { get; set; }
         public string Host { get; set; }

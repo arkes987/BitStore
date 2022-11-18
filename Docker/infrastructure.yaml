@@ -20,8 +20,9 @@ services:
       - '5672:5672'
       # HTTP management UI
       - '15672:15672'
-  memcached_1:
-    container_name: "memcached_1"
-    image: memcached
+  redis:
+    container_name: "redis_1"
+    image: redis:alpine
+    restart: always
     ports:
-      - '11211:11211'
+      - 6379:6379

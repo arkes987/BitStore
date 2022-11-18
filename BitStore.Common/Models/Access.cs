@@ -1,6 +1,6 @@
-﻿namespace BitStore.Metadata.Models
+﻿namespace BitStore.Common.Models
 {
-    internal class Access
+    public class Access
     {
         public Guid ObjectId { get; set; }
         public DateTime LastAccessAt { get; set; }

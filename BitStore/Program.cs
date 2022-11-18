@@ -1,3 +1,4 @@
+using BitStore.Cache.Installers;
 using BitStore.Metadata.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,3 +26,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+RedisInstaller.InstallServices(builder.Services, builder.Configuration);
+RedLockInstaller.InstallServices(builder.Services, builder.Configuration);

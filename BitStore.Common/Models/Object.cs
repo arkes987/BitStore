@@ -1,6 +1,6 @@
-﻿namespace BitStore.Metadata.Models
+﻿namespace BitStore.Common.Models
 {
-    internal class Object
+    public class Object
     {
         public Guid Id { get; set; }
         public long Size { get; set; }
