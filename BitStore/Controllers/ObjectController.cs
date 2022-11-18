@@ -1,3 +1,4 @@
+using BitStore.Engine.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BitStore.Controllers
@@ -7,10 +8,20 @@ namespace BitStore.Controllers
     public class ObjectController : ControllerBase
     {
         private readonly ILogger<ObjectController> _logger;
+        private readonly IObjectService _objectService;
 
-        public ObjectController(ILogger<ObjectController> logger)
+        public ObjectController(ILogger<ObjectController> logger, IObjectService objectService)
         {
             _logger = logger;
+            _objectService = objectService;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<FileStreamResult> Get(Guid id)
+        {
+            var stream = await _objectService.GetFile(id);
+
+            return File(stream, "application/octet-stream");
         }
 
         //GET FILE

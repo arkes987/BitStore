@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore", "BitStore\BitStore.csproj", "{A117B859-677D-4A5E-A7B1-74014BDB0F7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore", "BitStore\BitStore.csproj", "{A117B859-677D-4A5E-A7B1-74014BDB0F7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.Storage", "BitStore.Storage\BitStore.Storage.csproj", "{4CA58CF3-F685-4B9B-9B4A-D4B6017A1151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore.Storage", "BitStore.Storage\BitStore.Storage.csproj", "{4CA58CF3-F685-4B9B-9B4A-D4B6017A1151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.Metadata", "BitStore.Metadata\BitStore.Metadata.csproj", "{9844D617-73FB-49B9-B899-A8D619188CBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore.Metadata", "BitStore.Metadata\BitStore.Metadata.csproj", "{9844D617-73FB-49B9-B899-A8D619188CBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.AnalyticsEngine", "BitStore.AnalyticsEngine\BitStore.AnalyticsEngine.csproj", "{8ADA5A6D-66C0-4CC4-8102-04D1913CCC29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore.AnalyticsEngine", "BitStore.AnalyticsEngine\BitStore.AnalyticsEngine.csproj", "{8ADA5A6D-66C0-4CC4-8102-04D1913CCC29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.Cache", "BitStore.Cache\BitStore.Cache.csproj", "{62C846B1-CC5B-4082-B3DD-03C89A18F46B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore.Cache", "BitStore.Cache\BitStore.Cache.csproj", "{62C846B1-CC5B-4082-B3DD-03C89A18F46B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.Engine", "BitStore.Engine\BitStore.Engine.csproj", "{34A8BB9E-FE6F-426B-B494-8546829E64B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.Common", "BitStore.Common\BitStore.Common.csproj", "{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{62C846B1-CC5B-4082-B3DD-03C89A18F46B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62C846B1-CC5B-4082-B3DD-03C89A18F46B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62C846B1-CC5B-4082-B3DD-03C89A18F46B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A8BB9E-FE6F-426B-B494-8546829E64B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A8BB9E-FE6F-426B-B494-8546829E64B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A8BB9E-FE6F-426B-B494-8546829E64B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A8BB9E-FE6F-426B-B494-8546829E64B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
