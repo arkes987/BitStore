@@ -1,4 +1,5 @@
 using BitStore.Cache.Installers;
+using BitStore.DbScaffolder;
 using BitStore.Engine.Installers;
 using BitStore.Metadata.Installers;
 
@@ -10,6 +11,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+RedisInstaller.Install(builder.Services, builder.Configuration);
+RedLockInstaller.Install(builder.Services, builder.Configuration);
+ClockInstaller.Install(builder.Services);
+RepositoryInstaller.Install(builder.Services);
+ServiceInstaller.Install(builder.Services);
+builder.Services.AddDbContext<BitStoreContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,7 +35,3 @@ app.MapControllers();
 
 app.Run();
 
-RedisInstaller.InstallServices(builder.Services, builder.Configuration);
-RedLockInstaller.InstallServices(builder.Services, builder.Configuration);
-RepositoryInstaller.InstallServices(builder.Services);
-ServiceInstaller.InstallServices(builder.Services);

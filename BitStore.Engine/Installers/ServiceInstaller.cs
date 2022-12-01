@@ -6,9 +6,10 @@ namespace BitStore.Engine.Installers
 {
     public static class ServiceInstaller
     {
-        public static void InstallServices(IServiceCollection services)
+        public static void Install(IServiceCollection services)
         {
-            services.AddScoped<IObjectService, ObjectService>();
+            services.AddScoped<IItemService, ItemService>();
+            services.AddScoped<IVolumeService, VolumeService>();
         }
     }
 }

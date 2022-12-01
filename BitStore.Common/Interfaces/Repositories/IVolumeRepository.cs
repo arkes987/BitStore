@@ -4,8 +4,9 @@ namespace BitStore.Common.Interfaces.Repositories
 {
     public interface IVolumeRepository
     {
-        void RegisterVolume(Volume volume);
-        void UnregisterVolume(Volume volume);
-        void GetVolume(Guid id);
+        Task<IEnumerable<Volume>> GetAllVolumes();
+        Task RegisterVolume(Volume volume);
+        Task UnregisterVolume(Volume volume);
+        Task<Volume> GetVolume(Guid id);
     }
 }

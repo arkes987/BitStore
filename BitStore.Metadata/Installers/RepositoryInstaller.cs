@@ -7,11 +7,11 @@ namespace BitStore.Metadata.Installers
 {
     public static class RepositoryInstaller
     {
-        public static void InstallServices(IServiceCollection services)
+        public static void Install(IServiceCollection services)
         {
             services.AddSingleton<MetadataContext>();
             services.AddScoped<IAccessRepository, AccessRepository>();
-            services.AddScoped<IObjectRepository, ObjectRepository>();
+            services.AddScoped<IItemRepository, ItemRepository>();
             services.AddScoped<IVolumeRepository, VolumeRepository>();
         }
     }

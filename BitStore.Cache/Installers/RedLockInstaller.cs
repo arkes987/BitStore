@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using RedLockNet;
 using RedLockNet.SERedis;
 using RedLockNet.SERedis.Configuration;
@@ -10,7 +9,7 @@ namespace BitStore.Cache.Installers
 {
     public static class RedLockInstaller
     {
-        public static void InstallServices(IServiceCollection services, IConfiguration configuration)
+        public static void Install(IServiceCollection services, IConfiguration configuration)
         {
             var connectionMultiplexer = ConnectionMultiplexer.Connect(configuration["Redis:Url"]);
 

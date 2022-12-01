@@ -1,13 +1,12 @@
 ﻿using BitStore.Common.Interfaces.Redis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace BitStore.Cache.Installers
 {
     public static class RedisInstaller
     {
-        public static void InstallServices(IServiceCollection services, IConfiguration configuration)
+        public static void Install(IServiceCollection services, IConfiguration configuration)
         {
             services.AddStackExchangeRedisCache(options =>
             {
@@ -16,6 +15,7 @@ namespace BitStore.Cache.Installers
             });
 
             services.AddSingleton<IRedisLock, RedisLock>();
+            services.AddSingleton<IRedisCache, RedisCache>();
         }
     }
 }

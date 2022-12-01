@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore.AnalyticsEngine", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore.Cache", "BitStore.Cache\BitStore.Cache.csproj", "{62C846B1-CC5B-4082-B3DD-03C89A18F46B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.Engine", "BitStore.Engine\BitStore.Engine.csproj", "{34A8BB9E-FE6F-426B-B494-8546829E64B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore.Engine", "BitStore.Engine\BitStore.Engine.csproj", "{34A8BB9E-FE6F-426B-B494-8546829E64B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.Common", "BitStore.Common\BitStore.Common.csproj", "{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitStore.Common", "BitStore.Common\BitStore.Common.csproj", "{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitStore.DbScaffolder", "BitStore.DbScaffolder\BitStore.DbScaffolder.csproj", "{5BDC4EA8-76D8-41CA-827C-FAFEEEBFE6A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4813D618-2D1F-4EE1-A3E0-4B88C3ADF296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BDC4EA8-76D8-41CA-827C-FAFEEEBFE6A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BDC4EA8-76D8-41CA-827C-FAFEEEBFE6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BDC4EA8-76D8-41CA-827C-FAFEEEBFE6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BDC4EA8-76D8-41CA-827C-FAFEEEBFE6A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

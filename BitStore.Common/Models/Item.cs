@@ -1,6 +1,6 @@
 ﻿namespace BitStore.Common.Models
 {
-    public class Object
+    public class Item
     {
         public Guid Id { get; set; }
         public long Size { get; set; }
@@ -8,8 +8,8 @@
         public string Extension { get; set; }
         public string AbsolutePath { get; set; }
         public DateTime CreatedAt { get; set; }
-
-        public Guid VolumeId { get; set; }
         public Volume Volume { get; set; }
+        public Access Access { get; set; }
+        public Guid AccessId { get; set; }
     }
 }

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BitStore.Cache\BitStore.Cache.csproj" />
+    <ProjectReference Include="..\BitStore.DbScaffolder\BitStore.DbScaffolder.csproj" />
     <ProjectReference Include="..\BitStore.Engine\BitStore.Engine.csproj" />
     <ProjectReference Include="..\BitStore.Metadata\BitStore.Metadata.csproj" />
   </ItemGroup>
