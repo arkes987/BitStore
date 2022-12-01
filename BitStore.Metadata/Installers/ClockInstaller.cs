@@ -6,9 +6,11 @@ namespace BitStore.Metadata.Installers
 {
     public static class ClockInstaller
     {
-        public static void Install(IServiceCollection services)
+        public static IServiceCollection InstallClock(this IServiceCollection services)
         {
             services.AddScoped<IClock, UtcClock>();
+
+            return services;
         }
     }
 }

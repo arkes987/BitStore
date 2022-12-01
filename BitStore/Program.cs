@@ -9,15 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-RedisInstaller.Install(builder.Services, builder.Configuration);
-RedLockInstaller.Install(builder.Services, builder.Configuration);
-ClockInstaller.Install(builder.Services);
-RepositoryInstaller.Install(builder.Services);
-ServiceInstaller.Install(builder.Services);
+builder.Services
+    .InstallRedis(builder.Configuration)
+    .InstallRedLock(builder.Configuration)
+    .InstallRepositories()
+    .InstallServices()
+    .InstallClock()
+    .AddSwaggerGen()
+    .AddEndpointsApiExplorer();
+
 builder.Services.AddDbContext<BitStoreContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

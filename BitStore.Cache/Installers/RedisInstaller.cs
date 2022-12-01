@@ -6,7 +6,7 @@ namespace BitStore.Cache.Installers
 {
     public static class RedisInstaller
     {
-        public static void Install(IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection InstallRedis(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddStackExchangeRedisCache(options =>
             {
@@ -16,6 +16,8 @@ namespace BitStore.Cache.Installers
 
             services.AddSingleton<IRedisLock, RedisLock>();
             services.AddSingleton<IRedisCache, RedisCache>();
+
+            return services;
         }
     }
 }

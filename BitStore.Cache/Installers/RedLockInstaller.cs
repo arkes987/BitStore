@@ -9,7 +9,7 @@ namespace BitStore.Cache.Installers
 {
     public static class RedLockInstaller
     {
-        public static void Install(IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection InstallRedLock(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionMultiplexer = ConnectionMultiplexer.Connect(configuration["Redis:Url"]);
 
@@ -20,6 +20,8 @@ namespace BitStore.Cache.Installers
 
             services.AddSingleton<IDistributedLockFactory, RedLockFactory>(
                 x => RedLockFactory.Create(multiplexers));
+
+            return services;
         }
     }
 }
