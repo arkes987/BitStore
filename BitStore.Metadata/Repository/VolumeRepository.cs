@@ -7,7 +7,7 @@ namespace BitStore.Metadata.Repository
 {
     internal class VolumeRepository : BaseRepository<Volume>, IVolumeRepository
     {
-        public VolumeRepository(MetadataContext metadataContext) : base(metadataContext) { }
+        public VolumeRepository(MetadataContext metadataContext) : base(metadataContext, Volume.TableName) { }
 
         public async Task<IEnumerable<Volume>> GetAllVolumes()
             => await base.GetAll();

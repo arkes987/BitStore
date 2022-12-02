@@ -6,9 +6,11 @@ namespace BitStore.Metadata.Repository
     public abstract class BaseRepository<T>
     {
         protected readonly MetadataContext _context;
-        public BaseRepository(MetadataContext metadataContext)
+        private readonly string _tableName;
+        public BaseRepository(MetadataContext metadataContext, string tableName)
         {
             _context = metadataContext;
+            _tableName = tableName;
         }
 
         public virtual async Task<T> GetById(Guid id)
@@ -23,7 +25,7 @@ namespace BitStore.Metadata.Repository
         {
             using (var db = _context.Connection)
             {
-                return await db.QueryAsync<T>("SELECT");
+                return await db.QueryAsync<T>($"SELECT * FROM {_tableName};");
             }
         }
     }

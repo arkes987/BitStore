@@ -2,6 +2,7 @@
 {
     public class Item
     {
+        public const string TableName = "items";
         public Guid Id { get; set; }
         public long Size { get; set; }
         public string Name { get; set; }

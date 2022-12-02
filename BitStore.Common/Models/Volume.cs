@@ -2,6 +2,7 @@
 {
     public class Volume
     {
+        public const string TableName = "volumes";
         private Volume() { }
         public Volume(Guid id, string host, string share)
         {

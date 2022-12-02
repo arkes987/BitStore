@@ -7,7 +7,7 @@ namespace BitStore.Metadata.Repository
 {
     internal class ItemRepository : BaseRepository<Item>, IItemRepository
     {
-        public ItemRepository(MetadataContext metadataContext) : base(metadataContext) { }
+        public ItemRepository(MetadataContext metadataContext) : base(metadataContext, Item.TableName) { }
 
         public async Task<Item> GetItem(Guid id)
             => await base.GetById(id);
@@ -16,7 +16,7 @@ namespace BitStore.Metadata.Repository
         {
             using (var db = _context.Connection)
             {
-                string insertQuery = @"INSERT INTO Objects ([Id], [Size], [Name], [Extension], [AbsolutePath], [CreatedAt], [VolumeId]) VALUES (@Id, @Size, @Name, @Extension, @AbsolutePath, @CreatedAt, @VolumeId)";
+                string insertQuery = """INSERT INTO items ("Id", "Size", "Name", "Extension", "AbsolutePath", "CreatedAt", "VolumeId") VALUES (@Id, @Size, @Name, @Extension, @AbsolutePath, @CreatedAt, @VolumeId)""";
 
                 await db.ExecuteAsync(insertQuery, item);
             }

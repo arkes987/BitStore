@@ -6,7 +6,7 @@ namespace BitStore.Metadata.Repository
 {
     internal class AccessRepository : BaseRepository<Access>, IAccessRepository
     {
-        public AccessRepository(MetadataContext metadataContext) : base(metadataContext)
+        public AccessRepository(MetadataContext metadataContext) : base(metadataContext, Access.TableName)
         {
 
         }

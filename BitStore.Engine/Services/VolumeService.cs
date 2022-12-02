@@ -39,9 +39,11 @@ namespace BitStore.Engine.Services
                 throw new NoVolumesAvailableException();
             }
 
-            var highestSpaceVolume = volumes.OrderBy(x => x.FreeSpace).FirstOrDefault();
+            var highestSpaceVolume = volumes
+                .OrderBy(x => x.FreeSpace)
+                .FirstOrDefault(x => x.FreeSpace >= requestedSpace);
 
-            if (highestSpaceVolume.FreeSpace < requestedSpace)
+            if(highestSpaceVolume is null)
             {
                 throw new NoEnoughSpaceOnVolumeException(requestedSpace);
             }
