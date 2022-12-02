@@ -16,7 +16,10 @@ builder.Services
     .InstallRepositories()
     .InstallServices()
     .InstallClock()
-    .AddSwaggerGen()
+    .AddSwaggerGen(c =>
+    {
+        c.EnableAnnotations();
+    })
     .AddEndpointsApiExplorer();
 
 builder.Services.AddDbContext<BitStoreContext>();

@@ -8,7 +8,7 @@ namespace BitStore.DbScaffolder.Configuration
     {
         public void Configure(EntityTypeBuilder<Volume> builder)
         {
-            builder.ToTable("Volume");
+            builder.ToTable("volumes");
 
             builder.HasKey(e => e.Id);
         }

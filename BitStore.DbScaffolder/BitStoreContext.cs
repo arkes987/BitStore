@@ -8,11 +8,6 @@ namespace BitStore.DbScaffolder
     public class BitStoreContext : DbContext
     {
         private readonly IConfiguration _configuration;
-
-        public BitStoreContext()
-        {
-
-        }
         public BitStoreContext(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -23,7 +18,9 @@ namespace BitStore.DbScaffolder
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=postgres;Trust Server Certificate=true");
+            optionsBuilder.UseNpgsql(_configuration["Metadata:ConnectionString"]);
+
+            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

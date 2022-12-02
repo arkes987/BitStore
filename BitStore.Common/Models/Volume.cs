@@ -2,12 +2,20 @@
 {
     public class Volume
     {
-        public Guid Id { get; set; }
-        public string Host { get; set; }
-        public string Share { get; set; }
-        public long FreeSpace { get; set; }
-        public long UsedSpace { get; set; }
-        public ICollection<Item> Items{ get; set; }
+        private Volume() { }
+        public Volume(Guid id, string host, string share)
+        {
+            Id = id;
+            Host = host;
+            Share = share;
+        }
+
+        public Guid Id { get; }
+        public string Host { get; }
+        public string Share { get; }
+        public long FreeSpace { get; }
+        public long UsedSpace { get; }
+        public ICollection<Item> Items{ get; }
         public string FullPath
         {
             get
