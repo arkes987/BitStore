@@ -11,6 +11,20 @@ namespace BitStore.DbScaffolder.Configuration
             builder.ToTable("volumes");
 
             builder.HasKey(e => e.Id);
+
+            builder.Property(x => x.Host)
+                .IsRequired(false)
+                .HasMaxLength(100);
+
+            builder.Property(x => x.FreeSpace)
+                .IsRequired(true);
+
+            builder.Property(x => x.UsedSpace)
+                .IsRequired(true);
+
+            builder.Property(x => x.Share)
+                .IsRequired(true)
+                .HasMaxLength(150);
         }
     }
 }

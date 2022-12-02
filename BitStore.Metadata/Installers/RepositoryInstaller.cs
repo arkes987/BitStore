@@ -9,7 +9,7 @@ namespace BitStore.Metadata.Installers
     {
         public static IServiceCollection InstallRepositories(this IServiceCollection services)
         {
-            services.AddSingleton<MetadataContext>();
+            services.AddScoped<MetadataContext>();
             services.AddScoped<IAccessRepository, AccessRepository>();
             services.AddScoped<IItemRepository, ItemRepository>();
             services.AddScoped<IVolumeRepository, VolumeRepository>();

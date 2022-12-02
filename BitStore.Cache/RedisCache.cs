@@ -11,9 +11,9 @@ namespace BitStore.Cache
             _distributedCache = distributedCache;
         }
 
-        public async Task SaveAsync(Guid key, byte[] @object, CancellationToken cancellationToken)
+        public async Task SaveAsync(Guid key, byte[] resource, CancellationToken cancellationToken)
         {
-            await _distributedCache.SetAsync(key.ToString(), @object, cancellationToken);
+            await _distributedCache.SetAsync(key.ToString(), resource, cancellationToken);
         }
 
         public async Task<byte[]?> GetAsync(Guid key, CancellationToken cancellationToken)

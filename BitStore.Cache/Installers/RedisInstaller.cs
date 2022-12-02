@@ -14,8 +14,8 @@ namespace BitStore.Cache.Installers
                 options.InstanceName = "BitStore";
             });
 
-            services.AddSingleton<IRedisLock, RedisLock>();
-            services.AddSingleton<IRedisCache, RedisCache>();
+            services.AddScoped<IRedisLock, RedisLock>();
+            services.AddScoped<IRedisCache, RedisCache>();
 
             return services;
         }

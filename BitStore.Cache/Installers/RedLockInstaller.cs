@@ -18,7 +18,7 @@ namespace BitStore.Cache.Installers
                 connectionMultiplexer
             };
 
-            services.AddSingleton<IDistributedLockFactory, RedLockFactory>(
+            services.AddScoped<IDistributedLockFactory, RedLockFactory>(
                 x => RedLockFactory.Create(multiplexers));
 
             return services;
