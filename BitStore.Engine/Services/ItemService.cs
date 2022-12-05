@@ -32,10 +32,10 @@ namespace BitStore.Engine.Services
         public async Task AddItem(IFormFile formFile, CancellationToken cancellationToken)
         {
             var volume = await _volumeService.GetFreeVolume(formFile.Length);
-
+            
             var item = new Common.Models.Item
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 AbsolutePath = $"{volume.FullPath}/{formFile.FileName}",
                 Extension = formFile.ContentType,
                 CreatedAt = _clock.CurrentDate(),

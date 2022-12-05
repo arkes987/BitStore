@@ -51,7 +51,7 @@ namespace BitStore.DbScaffolder.Migrations
                     AbsolutePath = table.Column<string>(type: "text", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     VolumeId = table.Column<Guid>(type: "uuid", nullable: false),
-                    AccessId = table.Column<Guid>(type: "uuid", nullable: false)
+                    AccessId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -60,8 +60,7 @@ namespace BitStore.DbScaffolder.Migrations
                         name: "FK_items_access_AccessId",
                         column: x => x.AccessId,
                         principalTable: "access",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_items_volumes_VolumeId",
                         column: x => x.VolumeId,

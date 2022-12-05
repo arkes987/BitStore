@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BitStore.DbScaffolder.Migrations
 {
     [DbContext(typeof(BitStoreContext))]
-    [Migration("20221205122419_Init")]
+    [Migration("20221205130123_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -55,7 +55,7 @@ namespace BitStore.DbScaffolder.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("AccessId")
+                    b.Property<Guid?>("AccessId")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
@@ -115,9 +115,7 @@ namespace BitStore.DbScaffolder.Migrations
                 {
                     b.HasOne("BitStore.Common.Models.Access", "Access")
                         .WithOne("Item")
-                        .HasForeignKey("BitStore.Common.Models.Item", "AccessId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BitStore.Common.Models.Item", "AccessId");
 
                     b.HasOne("BitStore.Common.Models.Volume", "Volume")
                         .WithMany("Items")

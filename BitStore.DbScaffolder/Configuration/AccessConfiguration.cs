@@ -15,7 +15,7 @@ namespace BitStore.DbScaffolder.Configuration
             builder.HasOne(x => x.Item)
                 .WithOne(x => x.Access)
                 .HasForeignKey<Item>(x => x.AccessId)
-                .IsRequired();
+                .IsRequired(false);
         }
     }
 }
