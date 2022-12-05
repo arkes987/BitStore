@@ -2,6 +2,7 @@
 using BitStore.Common.Interfaces.Repositories;
 using BitStore.Common.Interfaces.Services;
 using BitStore.Common.Models;
+using BitStore.Storage;
 using Microsoft.Extensions.Logging;
 
 namespace BitStore.Engine.Services
@@ -17,7 +18,7 @@ namespace BitStore.Engine.Services
         }
         public async Task RegisterVolume(string share)
         {
-            if (!IsShareAvailable(share))
+            if (!Input.IsShareAvailable(share))
             {
                 throw new ShareNotAvailableException(share);
             }
@@ -43,32 +44,12 @@ namespace BitStore.Engine.Services
                 .OrderBy(x => x.FreeSpace)
                 .FirstOrDefault(x => x.FreeSpace >= requestedSpace);
 
-            if(highestSpaceVolume is null)
+            if (highestSpaceVolume is null || !Input.IsEnoughSpaceOnShare(highestSpaceVolume.FullPath, requestedSpace))
             {
                 throw new NoEnoughSpaceOnVolumeException(requestedSpace);
             }
 
-            //TODO: physically check if there is space on disk for requested space
-
             return highestSpaceVolume;
-        }
-
-
-        /// <summary>
-        /// Share is available when exists and app got r&w permissions
-        /// </summary>
-        /// <param name="share"></param>
-        /// <returns></returns>
-        public bool IsShareAvailable(string share)
-        {
-            if (!Directory.Exists(share))
-            {
-                return false;
-            }
-
-            //TODO: check if we have permissions to write and read
-
-            return true;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using BitStore.Common.Interfaces.Redis;
+﻿using BitStore.Common.Interfaces.EventBus;
+using BitStore.Common.Interfaces.Events;
+using BitStore.Common.Interfaces.Redis;
 using BitStore.Common.Interfaces.Repositories;
 using BitStore.Common.Interfaces.Services;
 using BitStore.Common.Interfaces.Time;
@@ -13,18 +15,21 @@ namespace BitStore.Engine.Services
         private readonly IItemRepository _itemRepository;
         private readonly IVolumeService _volumeService;
         private readonly IClock _clock;
+        private readonly IEventBus _eventBus;
         public ItemService(IRedisCache redisCache,
             IItemRepository objectRepository,
             IVolumeService volumeService,
-            IClock clock)
+            IClock clock,
+            IEventBus eventBus)
         {
             _cache = redisCache;
             _itemRepository = objectRepository;
             _clock = clock;
             _volumeService = volumeService;
+            _eventBus = eventBus;
         }
 
-        public async Task AddFile(IFormFile formFile, CancellationToken cancellationToken)
+        public async Task AddItem(IFormFile formFile, CancellationToken cancellationToken)
         {
             var volume = await _volumeService.GetFreeVolume(formFile.Length);
 
@@ -43,14 +48,16 @@ namespace BitStore.Engine.Services
 
             await Input.Save(volume.FullPath, formFile);
         }
-        public Task UpdateFile(Guid itemId, IFormFile formFile, CancellationToken cancellationToken)
+        public Task UpdateItem(Guid itemId, IFormFile formFile, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        async Task<Stream> IItemService.GetFile(Guid objectId, CancellationToken cancellationToken)
+        async Task<Stream> IItemService.GetItem(Guid itemId, CancellationToken cancellationToken)
         {
-            var file = await _cache.GetAsync(objectId, cancellationToken);
+            var file = await _cache.GetAsync(itemId, cancellationToken);
+
+            await _eventBus.Publish(new FileAccesedEvent());
 
             if (file != null)
             {
@@ -58,12 +65,10 @@ namespace BitStore.Engine.Services
             }
             else
             {
-                var @object = await _itemRepository.GetItem(objectId);
+                var @object = await _itemRepository.GetItem(itemId);
                 var hostBuilder = $"{@object.Volume.Host}/{@object.AbsolutePath}";
                 return new MemoryStream(Output.Read(hostBuilder));
             }
-
-            //publish event to bus that file has been accessed
         }
     }
 }

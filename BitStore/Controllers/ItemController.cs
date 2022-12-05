@@ -21,7 +21,7 @@ namespace BitStore.Controllers
         [HttpGet("{id}")]
         public async Task<FileStreamResult> Get(Guid id, CancellationToken cancellationToken)
         {
-            var stream = await _objectService.GetFile(id, cancellationToken);
+            var stream = await _objectService.GetItem(id, cancellationToken);
 
             return File(stream, "application/octet-stream");
         }
@@ -31,7 +31,7 @@ namespace BitStore.Controllers
         public async Task<IActionResult> Add(IFormFile formFile, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Adding new file {FileName}", formFile.FileName);
-            await _objectService.AddFile(formFile, cancellationToken);
+            await _objectService.AddItem(formFile, cancellationToken);
             return Ok();
         }
 
@@ -39,7 +39,7 @@ namespace BitStore.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, IFormFile formFile, CancellationToken cancellationToken)
         {
-            await _objectService.UpdateFile(id, formFile, cancellationToken);
+            await _objectService.UpdateItem(id, formFile, cancellationToken);
             return Ok();
         }
     }

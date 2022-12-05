@@ -1,3 +1,4 @@
+using BitStore.AnalyticsEngine.Installers;
 using BitStore.Cache.Installers;
 using BitStore.DbScaffolder;
 using BitStore.Engine.Installers;
@@ -15,6 +16,7 @@ builder.Services
     .InstallRedLock(builder.Configuration)
     .InstallRepositories()
     .InstallServices()
+    .InstallEventBus()
     .InstallClock()
     .AddSwaggerGen(c =>
     {

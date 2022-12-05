@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BitStore.AnalyticsEngine\BitStore.AnalyticsEngine.csproj" />
     <ProjectReference Include="..\BitStore.Cache\BitStore.Cache.csproj" />
     <ProjectReference Include="..\BitStore.DbScaffolder\BitStore.DbScaffolder.csproj" />
     <ProjectReference Include="..\BitStore.Engine\BitStore.Engine.csproj" />
