@@ -41,7 +41,7 @@ namespace BitStore.DbScaffolder.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Items",
+                name: "items",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -55,15 +55,15 @@ namespace BitStore.DbScaffolder.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Items", x => x.Id);
+                    table.PrimaryKey("PK_items", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Items_access_AccessId",
+                        name: "FK_items_access_AccessId",
                         column: x => x.AccessId,
                         principalTable: "access",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Items_volumes_VolumeId",
+                        name: "FK_items_volumes_VolumeId",
                         column: x => x.VolumeId,
                         principalTable: "volumes",
                         principalColumn: "Id",
@@ -71,14 +71,14 @@ namespace BitStore.DbScaffolder.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_AccessId",
-                table: "Items",
+                name: "IX_items_AccessId",
+                table: "items",
                 column: "AccessId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_VolumeId",
-                table: "Items",
+                name: "IX_items_VolumeId",
+                table: "items",
                 column: "VolumeId");
         }
 
@@ -86,7 +86,7 @@ namespace BitStore.DbScaffolder.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Items");
+                name: "items");
 
             migrationBuilder.DropTable(
                 name: "access");

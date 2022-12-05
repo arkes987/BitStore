@@ -27,6 +27,7 @@ namespace BitStore.DbScaffolder
         {
             modelBuilder.ApplyConfiguration(new AccessConfiguration());
             modelBuilder.ApplyConfiguration(new VolumeConfiguration());
+            modelBuilder.ApplyConfiguration(new ItemConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

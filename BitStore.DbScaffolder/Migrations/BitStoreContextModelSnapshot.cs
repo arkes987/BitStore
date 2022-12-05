@@ -79,7 +79,7 @@ namespace BitStore.DbScaffolder.Migrations
 
                     b.HasIndex("VolumeId");
 
-                    b.ToTable("Items");
+                    b.ToTable("items", (string)null);
                 });
 
             modelBuilder.Entity("BitStore.Common.Models.Volume", b =>

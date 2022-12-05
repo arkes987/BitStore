@@ -8,9 +8,24 @@ namespace BitStore.DbScaffolder.Configuration
     {
         public void Configure(EntityTypeBuilder<Item> builder)
         {
-            builder.ToTable("items");
+            builder.ToTable(Item.TableName);
 
             builder.HasKey(e => e.Id);
+
+            builder.Property(x => x.Size)
+                .IsRequired(true);
+
+            builder.Property(x => x.Name)
+                .IsRequired(true);
+
+            builder.Property(x => x.Extension)
+                .IsRequired(true);
+
+            builder.Property(x => x.AbsolutePath)
+                .IsRequired(true);
+
+            builder.Property(x => x.CreatedAt)
+                .IsRequired(true);
 
             builder.HasOne(x => x.Volume)
                 .WithMany(x => x.Items)

@@ -4,12 +4,19 @@ namespace BitStore.Common.Interfaces.Events
 {
     public class ItemAccesedEvent : IEvent
     {
-        private Guid _itemId;
-        public ItemAccesedEvent(Guid itemId)
+        public Guid ItemId { get; }
+
+        private DateTime _occouredAt;
+        public DateTime OccouredAt
         {
-            _itemId = itemId;
+            get { return _occouredAt; }
+            private set { _occouredAt = value; }
         }
 
-        public DateTime OccouredAt => throw new NotImplementedException();
+        public ItemAccesedEvent(Guid itemId, DateTime occouredAt)
+        {
+            ItemId = itemId;
+            _occouredAt = occouredAt;
+        }
     }
 }

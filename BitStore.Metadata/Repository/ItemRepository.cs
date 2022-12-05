@@ -16,7 +16,7 @@ namespace BitStore.Metadata.Repository
         {
             using (var db = _context.Connection)
             {
-                string insertQuery = """INSERT INTO items ("Id", "Size", "Name", "Extension", "AbsolutePath", "CreatedAt", "VolumeId") VALUES (@Id, @Size, @Name, @Extension, @AbsolutePath, @CreatedAt, @VolumeId)""";
+                string insertQuery = """INSERT INTO items ("Id", "Size", "Name", "Extension", "AbsolutePath", "CreatedAt", "VolumeId", "AccessId") VALUES (@Id, @Size, @Name, @Extension, @AbsolutePath, @CreatedAt, @VolumeId, @AccessId)""";
 
                 await db.ExecuteAsync(insertQuery, item);
             }

@@ -57,7 +57,7 @@ namespace BitStore.Engine.Services
         {
             var file = await _cache.GetAsync(itemId, cancellationToken);
 
-            await _eventBus.Publish(new FileAccesedEvent());
+            await _eventBus.Publish(new ItemAccesedEvent(itemId, _clock.CurrentDate()));
 
             if (file != null)
             {

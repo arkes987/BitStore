@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BitStore.DbScaffolder.Migrations
 {
     [DbContext(typeof(BitStoreContext))]
-    [Migration("20221202200307_Init")]
+    [Migration("20221205122419_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -82,7 +82,7 @@ namespace BitStore.DbScaffolder.Migrations
 
                     b.HasIndex("VolumeId");
 
-                    b.ToTable("Items");
+                    b.ToTable("items", (string)null);
                 });
 
             modelBuilder.Entity("BitStore.Common.Models.Volume", b =>
